@@ -1,0 +1,22 @@
+---
+# tasks file for nodejs
+
+- name: Install EPEL repository
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: present
+      
+- name: Installing node and npm
+  yum:
+    name: "{{ item }}"
+    enablerepo: epel
+    state: installed
+  with_items:
+    - nodejs
+    - npm
+
+- name: Installing NPM package forever
+  npm:
+    name: forever
+    global: yes
+    state: present 

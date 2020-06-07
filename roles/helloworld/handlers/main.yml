@@ -1,0 +1,5 @@
+---
+# handlers file for helloworld
+
+- name: restart helloworld
+  command: forever restart /home/ec2-user/helloworld.js
